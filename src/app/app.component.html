@@ -1,10 +1,10 @@
-<p>hola a todos</p>
+<!-- <p>hola a todos</p>
 <br>
 <h3>mi trabajo {{title}}</h3>
 <br>
 <h4>la suma de 2 + 2 es {{2+2}}</h4>
 <hr>
-<p>el doble de 3 es {{duplicarNumero(3)}}</p>
+<p>el doble de 3 es {{duplicarNumero(3)}}</p> -->
 
 
 
@@ -17,10 +17,19 @@
 <br>
 <p>Implementacion moderna con For</p>
 @for (pelicula of peliculas; track $index) {
-<div>
-  <h2>{{$index}} pelicula: {{pelicula.titulo | uppercase}}</h2>
-  <h3>fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MM-yyyy" | uppercase}}</h3>
-  <p>fecha lanzamiento: {{pelicula.precio | currency}}</p>
+<div class="contenedor-pelicula">
+  <div style="display: flex; flex-direction: row; gap: 10px;">
+    <div>
+      <img [ngSrc]="pelicula.poster" [priority]="$index===0" width="169" height="250" alt="poster"/>
+    </div>
+    <div>
+      <h2>{{$index}} pelicula: {{pelicula.titulo | uppercase}}</h2>
+      <h3>fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MM-yyyy" | uppercase}}</h3>
+      <p>fecha lanzamiento: {{pelicula.precio | currency}}</p>
+
+    </div>
+  </div>
+
 </div>
 }
 
