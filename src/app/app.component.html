@@ -14,22 +14,21 @@
   <h3>fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MM-yyyy" | uppercase}}</h3>
   <p>fecha lanzamiento: {{pelicula.precio | currency}}</p>
 </div> -->
+<h2>Peliculas en cines</h2>
 <br>
-<p>Implementacion moderna con For</p>
-@for (pelicula of peliculas; track $index) {
-<div class="contenedor-pelicula">
-  <div style="display: flex; flex-direction: row; gap: 10px;">
-    <div>
-      <img [ngSrc]="pelicula.poster" [priority]="$index===0" width="169" height="250" alt="poster"/>
-    </div>
-    <div>
-      <h2>{{$index}} pelicula: {{pelicula.titulo | uppercase}}</h2>
-      <h3>fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MM-yyyy" | uppercase}}</h3>
-      <p>fecha lanzamiento: {{pelicula.precio | currency}}</p>
+<app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
 
-    </div>
-  </div>
+<h2>Próximos estrenos</h2>
+<br>
+<app-listado-peliculas [peliculas]="peliculasProximosEstrenos"></app-listado-peliculas>
+
+<!-- <div *ngIf="!peliculas">
+
+</div> -->
+
+<!-- <div *ngIf="peliculas">
+
 
 </div>
-}
 
+ -->
