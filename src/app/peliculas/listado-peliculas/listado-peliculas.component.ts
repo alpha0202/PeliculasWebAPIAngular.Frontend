@@ -1,19 +1,30 @@
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Component, Input, input, OnInit } from '@angular/core';
+import { ListadoGenericoComponent } from '../../compartidos/componentes/listado-generico/listado-generico.component';
 
 @Component({
   selector: 'app-listado-peliculas',
   standalone: true,
-  imports: [DatePipe,CurrencyPipe],
+  imports: [DatePipe, CurrencyPipe, ListadoGenericoComponent],
   templateUrl: './listado-peliculas.component.html',
-  styleUrl: './listado-peliculas.component.css'
+  styleUrl: './listado-peliculas.component.css',
 })
-export class ListadoPeliculasComponent implements OnInit {
-  ngOnInit(): void {
+export class ListadoPeliculasComponent {
+  @Input({ required: true })
+  peliculas!: any[];
 
+  agregarPelicula() {
+    this.peliculas.push({
+      titulo: 'Inception',
+      fechaLanzamiento: new Date('2012-07-03'),
+      precio: 1000,
+    });
   }
-  @Input({required:true})
-  peliculas! : any[];
 
-
+  remover(pelicula: any) {
+    const indice = this.peliculas.findIndex(
+      (peliculaActual: any) => peliculaActual.titulo === pelicula.titulo
+    );
+    this.peliculas.splice(indice, 1);
+  }
 }
