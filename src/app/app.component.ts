@@ -10,11 +10,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ListadoPeliculasComponent } from './peliculas/listado-peliculas/listado-peliculas.component';
 import { MenuComponent } from "./compartidos/componentes/menu/menu.component";
+import { RatingComponent } from "./compartidos/componentes/rating/rating.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ListadoPeliculasComponent, MenuComponent],
+  imports: [ListadoPeliculasComponent, MenuComponent, RatingComponent],
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -71,6 +72,13 @@ export class AppComponent implements OnInit {
     }, 2000);
   }
 
+
+
+
   peliculasEnCines!: any[];
   peliculasProximosEstrenos!: any[];
+
+  procesarVoto(voto:number){
+    alert(`Calificación otorgada ${voto}`);
+  }
 }

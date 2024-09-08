@@ -15,13 +15,17 @@
   <p>fecha lanzamiento: {{pelicula.precio | currency}}</p>
 </div> -->
 <app-menu></app-menu>
-<h2>Peliculas en cines</h2>
-<br>
-<app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
+<div class="contenedor">
+  <app-rating [maximoRating]="5" (votado)="procesarVoto($event)"></app-rating>
+  <h2>Peliculas en cines</h2>
+  <br>
+  <app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
 
-<h2>Próximos estrenos</h2>
-<br>
-<app-listado-peliculas [peliculas]="peliculasProximosEstrenos"></app-listado-peliculas>
+  <h2>Próximos estrenos</h2>
+  <br>
+  <app-listado-peliculas [peliculas]="peliculasProximosEstrenos"></app-listado-peliculas>
+
+</div>
 
 <!-- <div *ngIf="!peliculas">
 
