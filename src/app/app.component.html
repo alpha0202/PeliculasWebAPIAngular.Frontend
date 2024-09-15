@@ -16,14 +16,7 @@
 </div> -->
 <app-menu></app-menu>
 <div class="contenedor">
-  <app-rating [maximoRating]="5" (votado)="procesarVoto($event)"></app-rating>
-  <h2>Peliculas en cines</h2>
-  <br>
-  <app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
-
-  <h2>Próximos estrenos</h2>
-  <br>
-  <app-listado-peliculas [peliculas]="peliculasProximosEstrenos"></app-listado-peliculas>
+<router-outlet></router-outlet>
 
 </div>
 
